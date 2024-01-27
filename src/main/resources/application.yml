@@ -1,4 +1,6 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
   datasource:
     url: jdbc:postgresql://localhost:5432/batch_processing
     username: postgres
@@ -17,4 +19,4 @@ spring:
     jdbc:
       initialize-schema: ALWAYS
     job:
-      enabled: true
+      enabled: false
