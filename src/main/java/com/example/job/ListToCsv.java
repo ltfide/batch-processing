@@ -83,9 +83,9 @@ public class ListToCsv {
     }
 
     @Bean
-    public Job csvJob(JobRepository jobRepository,
+    public Job listToCsvJob(JobRepository jobRepository,
                       PlatformTransactionManager transactionManager) {
-        return new JobBuilder("CsvJob", jobRepository)
+        return new JobBuilder("ListToCsv", jobRepository)
                 .start(csvStep(jobRepository, transactionManager))
                 .incrementer(new RunIdIncrementer())
                 .build();
