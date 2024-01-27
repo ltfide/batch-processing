@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @since 27-01-2024
  */
 @Configuration
-public class Csv {
+public class ListToCsv {
 
     private static final String FIRSTNAME = "firstname";
     private static final String LASTNAME = "lastname";
