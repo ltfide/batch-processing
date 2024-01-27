@@ -15,11 +15,21 @@ public class BatchService {
 
     private final JobLauncher jobLauncher;
     private final Job csvToDbJob;
+    private final Job dbToCsvJob;
+    private final Job listToCsvJob;
 
     private JobParameters getJobParameters() {
         return new JobParametersBuilder()
             .addLong("startsAt", System.currentTimeMillis())
             .toJobParameters();
+    }
+
+    public void runListToCsv() {
+        try {
+            jobLauncher.run(listToCsvJob, getJobParameters());
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
     }
 
     public void runCsvToDb() {
@@ -28,5 +38,19 @@ public class BatchService {
         } catch (Exception e) {
             log.error(e.getMessage());
         }
+    }
+
+    public void runDbToCsv() {
+        try {
+            jobLauncher.run(dbToCsvJob, getJobParameters());
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
+    }
+
+    public void runAllJob() {
+        runListToCsv();
+        runCsvToDb();
+        runDbToCsv();
     }
 }

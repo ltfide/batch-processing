@@ -13,6 +13,6 @@ public class BatchRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        service.runCsvToDb();
+        service.runAllJob();
     }
 }
